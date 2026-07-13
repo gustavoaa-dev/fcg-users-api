@@ -1,6 +1,6 @@
 # FCG Users API
 
-Microsserviço responsável pelo cadastro, autenticação e autorização de usuários da plataforma FCG (Facul Cloud Games).
+Microsserviço responsável pelo cadastro, autenticação e autorização de usuários da plataforma FCG (Fiap Cloud Games).
 
 ## Funcionalidades
 
