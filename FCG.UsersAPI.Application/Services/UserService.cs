@@ -1,7 +1,7 @@
 using FCG.UsersAPI.Application.DTOs;
 using FCG.UsersAPI.Domain.Entities;
 using FCG.UsersAPI.Domain.Enums;
-using FCG.UsersAPI.Domain.Events;
+using FCG.Shared.Events;
 using FCG.UsersAPI.Domain.Interfaces;
 using MassTransit;
 

@@ -87,6 +87,10 @@ builder.Services.AddMassTransit(x =>
             h.Username("guest");
             h.Password("guest");
         });
+
+        cfg.Message<FCG.Shared.Events.UserCreatedEvent>(m => m.SetEntityName("UserCreatedEvent"));
+
+        cfg.ConfigureEndpoints(context);
     });
 });
 
