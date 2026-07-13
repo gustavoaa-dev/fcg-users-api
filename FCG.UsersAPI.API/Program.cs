@@ -100,6 +100,13 @@ builder.Services.AddScoped<AuthService>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider
+        .GetRequiredService<UsersDbContext>();
+    db.Database.Migrate();
+}
+
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
