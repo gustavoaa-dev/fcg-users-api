@@ -28,7 +28,11 @@ Microsserviço responsável pelo cadastro, autenticação e autorização de usu
 ### Executar localmente
 
 ```bash
-# Ajuste a connection string em appsettings.json se necessário
+# Nenhuma credencial é versionada: a string de conexão e a chave JWT vêm do ambiente
+# (no cluster, dos Secrets do Kubernetes). Sem elas a API sobe, mas não conecta no banco.
+export ConnectionStrings__DefaultConnection='Server=127.0.0.1;Database=FCG_Users;User Id=sa;Password=<sua-senha>;TrustServerCertificate=True'
+export Jwt__SecretKey='<a mesma chave usada pelo catalog-api e pelo Kong>'
+
 dotnet run --project FCG.UsersAPI.API
 ```
 
@@ -50,6 +54,8 @@ docker-compose up -d
 ```
 
 ## Variáveis de ambiente
+
+O `appsettings.json` **não** carrega senha nem chave JWT: as credenciais vêm só daqui — no cluster, dos Secrets do Kubernetes (ver [fcg-orchestration](https://github.com/gustavoaa-dev/fcg-orchestration), seção *Segredos*).
 
 | Variável | Descrição | Padrão |
 |---|---|---|
